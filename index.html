@@ -11,29 +11,29 @@
 
   <div class="calcborder">
     <div class="displayborder">
-      <div class="display">0123456789</div>
+      <div class="display"></div>
     </div>
     <div class="btns">
       <div class="btnsmain">
         <div class="btnsleft">
           <div class="rowone">
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button class="num">7</button>
+            <button class="num">8</button>
+            <button class="num">9</button>
           </div>
           <div class="rowtwo">
-            <button>3</button>
-            <button>5</button>
-            <button>6</button>
+            <button class="num">3</button>
+            <button class="num">5</button>
+            <button class="num">6</button>
           </div>
           <div class="rowthree">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button class="num">1</button>
+            <button class="num">2</button>
+            <button class="num">3</button>
           </div>
           <div class="rowfour">
-            <button>.</button>
-            <button>0</button>
+            <button class="num">.</button>
+            <button class="num">0</button>
             <button>=</button>
           </div>
         </div>
@@ -90,6 +90,29 @@
     function operate(operator, a, b) {
       return operator(a, b);
     }
+
+    let displayValue;
+    function populateDisplay(e) {
+      let display = document.querySelector('.display');
+      display.textContent += e.target.innerText;
+      displayValue = display.innerText;
+    }
+
+
+    const nums = document.querySelectorAll('.num');
+    console.log({nums});
+    for (let i = 0; i < nums.length; i++){
+      nums[i].addEventListener('click', populateDisplay);
+    }
+
+
+
+
+
+
+
+
+
 
 
 

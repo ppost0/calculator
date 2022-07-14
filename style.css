@@ -43,10 +43,14 @@ body {
 }
 
 .display {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  overflow: hidden;
   margin-right: 10px;
   font-size: 50px;
   font-weight: 600;
   color: rgb(240, 240, 240);
+  width: 100%;
 }
 
 .btns {
@@ -102,7 +106,8 @@ button {
 
 .footer {
   margin-top: 40px;
+  padding: 5px;
   font-family: Trattatello, fantasy;
-  background-color: rgba(49, 52, 107, 0.5);
+  background-color: rgba(49, 52, 107, 0.3);
   text-align: center;
 }
