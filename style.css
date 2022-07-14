@@ -2,15 +2,21 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   background-color: rgb(240, 240, 240);
   font-family: 'Courier New', Courier, monospace;
+  height: 100vh;
 }
 
 .calcborder {
@@ -22,6 +28,7 @@ body {
   width: 600px;
   display: flex;
   flex-flow: column nowrap;
+  align-self: center;
 }
 
 .displayborder {
@@ -29,7 +36,7 @@ body {
   border-radius: 5px;
   display: flex;
   height: 150px;
-  margin: 20px;
+  margin: 30px;
   justify-content: flex-end;
   align-items: flex-end;
   background-color: rgba(0, 0, 0, 0.8);
@@ -50,8 +57,8 @@ body {
 
 button {
   flex: 1 0 0;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   font-size: 40px;
   border-radius: 15px;
 }
@@ -74,7 +81,7 @@ button {
 .rowfour {
   display: flex;
   flex: 1 0 0;
-  gap: 5px;
+  gap: 25px;
 }
 
 .btnsright {
@@ -90,4 +97,12 @@ button {
   margin-left: 60px;
   margin-top: 10px;
   width: auto;
+}
+
+
+.footer {
+  margin-top: 40px;
+  font-family: Trattatello, fantasy;
+  background-color: rgba(49, 52, 107, 0.5);
+  text-align: center;
 }
