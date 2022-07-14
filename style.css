@@ -43,6 +43,51 @@ body {
 }
 
 .btns {
-  border: 2px dotted black;
+  /* border: 2px dotted black; */
+  display: flex;
+  flex-direction: column;
+}
 
+button {
+  flex: 1 0 0;
+  width: 90px;
+  height: 90px;
+  font-size: 40px;
+  border-radius: 15px;
+}
+
+.btnsmain {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.btnsleft {
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rowone,
+.rowtwo,
+.rowthree,
+.rowfour {
+  display: flex;
+  flex: 1 0 0;
+  gap: 5px;
+}
+
+.btnsright {
+  display: flex;
+  margin-left: auto;
+  margin-right: 60px;
+  flex-flow: column nowrap;
+  gap: 5px;
+}
+
+
+.clearbtn button {
+  margin-left: 60px;
+  margin-top: 10px;
+  width: auto;
 }
