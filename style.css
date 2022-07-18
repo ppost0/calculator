@@ -34,7 +34,8 @@ body {
 .displayborder {
   display: flex;
   /* flex: 1 0 auto; */
-  height: 150px;
+  min-height: 150px;
+  height: auto;
   flex-flow: column nowrap;
   border: 2px inset rgba(0, 0, 0, 0.8);
   border-radius: 5px;
@@ -43,35 +44,24 @@ body {
   /* justify-content: flex-end;
   align-items: flex-end; */
   background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
 }
 
 .displaytop, .displaybottom {
   align-items: center;
+  padding-right: 5px;
   height: 50%;
   display: flex;
   flex-flow: row-reverse wrap;
   font-size: 50px;
   font-weight: 600;
   color: rgb(240, 240, 240);
-  overflow: scroll;
   width: 100%;
   overflow-wrap: anywhere;
   /* white-space: initial; */
   text-align: right;
 }
 
-/* .displaybottom {
-  align-items: center;
-  height: 50%;
-  display: flex;
-  flex-flow: row-reverse;
-  overflow: hidden;
-  margin-right: 10px;
-  font-size: 50px;
-  font-weight: 600;
-  color: rgb(240, 240, 240);
-  width: 100%;
-} */
 
 .btns {
   /* border: 2px dotted black; */
