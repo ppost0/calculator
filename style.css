@@ -24,7 +24,7 @@ body {
   background-color: rgb(205, 205, 205);
   border: 10px solid rgba(0, 0, 0, 0.8);
   border-radius: 20px;
-  height: 700px;
+  /* height: 800px; */
   width: 500px;
   display: flex;
   flex-flow: column nowrap;
@@ -33,29 +33,36 @@ body {
 
 .displayborder {
   display: flex;
+  flex: 1 0 auto;
+  height: 150px;
   flex-flow: column nowrap;
   border: 2px inset rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   display: flex;
-  height: 150px;
+  /* height: 150px; */
   margin: 30px;
   justify-content: flex-end;
   align-items: flex-end;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.displaytop {
+.displaytop, .displaybottom {
+  align-items: center;
+  height: 50%;
   display: flex;
-  flex-flow: row-reverse;
-  margin-right: 10px;
+  flex-flow: row-reverse wrap;
   font-size: 50px;
   font-weight: 600;
   color: rgb(240, 240, 240);
-  width: 100%;
   overflow: hidden;
+  width: 100%;
+  overflow-wrap: anywhere;
+  white-space: initial;
 }
 
-.displaybottom {
+/* .displaybottom {
+  align-items: center;
+  height: 50%;
   display: flex;
   flex-flow: row-reverse;
   overflow: hidden;
@@ -64,7 +71,7 @@ body {
   font-weight: 600;
   color: rgb(240, 240, 240);
   width: 100%;
-}
+} */
 
 .btns {
   /* border: 2px dotted black; */
@@ -111,8 +118,7 @@ button {
 
 
 .clearbtn button {
-  margin-left: 50px;
-  margin-top: 20px;
+  margin: 20px 50px;
   width: auto;
 }
 
