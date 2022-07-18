@@ -47,15 +47,22 @@ body {
   overflow: auto;
 }
 
+.displaytop {
+  font-size: 35px;
+}
+
+.displaybottom {
+  font-size: 50px;
+}
+
 .displaytop, .displaybottom {
   align-items: center;
   padding-right: 5px;
   height: 50%;
+  color: rgb(240, 240, 240);
   display: flex;
   flex-flow: row-reverse wrap;
-  font-size: 50px;
   font-weight: 600;
-  color: rgb(240, 240, 240);
   width: 100%;
   overflow-wrap: anywhere;
   /* white-space: initial; */
