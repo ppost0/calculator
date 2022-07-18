@@ -33,12 +33,11 @@ body {
 
 .displayborder {
   display: flex;
-  flex: 1 0 auto;
+  /* flex: 1 0 auto; */
   height: 150px;
   flex-flow: column nowrap;
   border: 2px inset rgba(0, 0, 0, 0.8);
   border-radius: 5px;
-  display: flex;
   /* height: 150px; */
   margin: 30px;
   /* justify-content: flex-end;
@@ -54,10 +53,10 @@ body {
   font-size: 50px;
   font-weight: 600;
   color: rgb(240, 240, 240);
-  overflow: hidden;
+  overflow: scroll;
   width: 100%;
   overflow-wrap: anywhere;
-  white-space: initial;
+  /* white-space: initial; */
   text-align: right;
 }
 
@@ -132,4 +131,24 @@ button {
   text-align: center;
   color: rgba(0, 0, 0, 0.65);
   font-size: 15px;
+}
+
+/* unvisited link */
+a:link {
+  color: #7202a6;
+}
+
+/* visited link */
+a:visited {
+  color: #433880;
+}
+
+/* mouse over link */
+a:hover {
+  color: #e784fd;
+}
+
+/* selected link */
+a:active {
+  color: #e784fd85;
 }
