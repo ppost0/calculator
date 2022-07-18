@@ -40,7 +40,7 @@
         </div>
         <div class="btnsright">
           <button class="plus">+</button>
-          <button class="minus">-</button>
+          <button class="minus">−</button>
           <button class="times">×</button>
           <button class="divided">÷</button>
         </div>
@@ -102,21 +102,25 @@
       return operator(a, b);
     }
 
+
+
+
     function populateDisplay(e) {
       if (completed) {
         displayBottom.textContent = '';
         displayTop.textContent = '';
+        value1 = '';
+        value2 = '';
         completed = false;
       }
       displayBottom.textContent += e.target.innerText;
     }
 
 
-
     function pushOperator(e) {
       if (e.target.innerText === '+') {
         operation = add;
-      } else if (e.target.innerText === '-') {
+      } else if (e.target.innerText === '−') {
         operation = subtract;
       } else if (e.target.innerText === '×') {
         operation = multiply;
@@ -124,36 +128,9 @@
         operation = divide;
       }
       value1 = displayBottom.textContent;
-      displayTop.textContent += `${value1} ${e.target.innerText} `;
-      displayBottom.textContent = '';
+      displayTop.textContent = `${value1} ${e.target.innerText} `;
+      displayBottom.textContent = ''
     }
-
-
-
-    // function pushPlus() {
-    //   value1 = displayBottom.textContent;
-    //   operation = add;
-    //   displayTop.textContent += `${value1} + `;
-    //   displayBottom.textContent = '';
-    // }
-
-    // function pushMinus() {
-    //   value1 = displayBottom.textContent;
-    //   operation = subtract;
-    //   displayTop.textContent += `${value1} - `;
-    //   displayBottom.textContent = '';
-    // }
-
-    // function pushTimes() {
-    //   value1 = displayBottom.textContent;
-    //   operation = multiply;
-    //   displayTop.textContent += `${value1} × `;
-    //   displayBottom.textContent = '';
-    // }
-
-    // function pushDivide() {
-
-    // }
 
 
 
