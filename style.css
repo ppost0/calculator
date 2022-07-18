@@ -14,25 +14,27 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(221, 221, 221);
   font-family: 'Courier New', Courier, monospace;
   height: 100vh;
 }
 
 .calcborder {
   margin-top: 30px;
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(205, 205, 205);
   border: 10px solid rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   height: 700px;
-  width: 600px;
+  width: 500px;
   display: flex;
   flex-flow: column nowrap;
   align-self: center;
 }
 
 .displayborder {
-  border: 2px solid rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-flow: column nowrap;
+  border: 2px inset rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   display: flex;
   height: 150px;
@@ -42,9 +44,20 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.display {
+.displaytop {
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: row-reverse;
+  margin-right: 10px;
+  font-size: 50px;
+  font-weight: 600;
+  color: rgb(240, 240, 240);
+  width: 100%;
+  overflow: hidden;
+}
+
+.displaybottom {
+  display: flex;
+  flex-flow: row-reverse;
   overflow: hidden;
   margin-right: 10px;
   font-size: 50px;
@@ -61,8 +74,8 @@ body {
 
 button {
   flex: 1 0 0;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   font-size: 40px;
   border-radius: 15px;
 }
@@ -73,10 +86,10 @@ button {
 }
 
 .btnsleft {
-  margin-left: 60px;
+  margin-left: 50px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .rowone,
@@ -85,29 +98,31 @@ button {
 .rowfour {
   display: flex;
   flex: 1 0 0;
-  gap: 25px;
+  gap: 10px;
 }
 
 .btnsright {
   display: flex;
   margin-left: auto;
-  margin-right: 60px;
+  margin-right: 50px;
   flex-flow: column nowrap;
   gap: 5px;
 }
 
 
 .clearbtn button {
-  margin-left: 60px;
-  margin-top: 10px;
+  margin-left: 50px;
+  margin-top: 20px;
   width: auto;
 }
 
 
 .footer {
   margin-top: 40px;
-  padding: 5px;
-  font-family: Trattatello, fantasy;
-  background-color: rgba(49, 52, 107, 0.3);
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgba(49, 52, 107, 0.2);
   text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 15px;
 }

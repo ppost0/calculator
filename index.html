@@ -5,13 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Calculator</title>
+  <title>Calc U L8r</title>
 </head>
 <body>
 
   <div class="calcborder">
     <div class="displayborder">
-      <div class="display"></div>
+      <div class="displaytop" ></div>
+      <div class="displaybottom"></div>
     </div>
     <div class="btns">
       <div class="btnsmain">
@@ -34,14 +35,14 @@
           <div class="rowfour">
             <button class="num">.</button>
             <button class="num">0</button>
-            <button>=</button>
+            <button class="equals">=</button>
           </div>
         </div>
         <div class="btnsright">
-          <button>+</button>
-          <button>-</button>
-          <button>×</button>
-          <button>÷</button>
+          <button class="plus">+</button>
+          <button class="minus">-</button>
+          <button class="times">×</button>
+          <button class="divided">÷</button>
         </div>
       </div>
       <div class="clearbtn">
@@ -49,18 +50,7 @@
       </div>
     </div>
   </div>
-  <div class="footer">Patrick Post © 2022</div>
-
-
-
-
-
-
-
-
-
-
-
+  <div class="footer">Copyright © 2022 ppost0</div>
 
 
 
@@ -71,8 +61,31 @@
 
   <script>
 
+    let displayValue;
+    let value1;
+    let value2;
+    let operation;
+    let result;
+    let completed = false;
+
+    const nums = document.querySelectorAll('.num');
+    const plus = document.querySelector('.plus');
+    const minus = document.querySelector('.minus');
+    const times = document.querySelector('.times');
+    const divided = document.querySelector('.divided');
+    const equals = document.querySelector('.equals')
+    const displayBottom = document.querySelector('.displaybottom');
+    const displayTop = document.querySelector('.displaytop');
+    const clearBtn = document.querySelector('.clearbtn');
+
+
+
+
+
+
+
     function add(a, b) {
-      return a + b;
+      return Number(a) + Number(b);
     }
 
     function subtract(a, b) {
@@ -91,26 +104,61 @@
       return operator(a, b);
     }
 
-    let displayValue;
     function populateDisplay(e) {
-      let display = document.querySelector('.display');
-      display.textContent += e.target.innerText;
-      displayValue = display.innerText;
+      if (completed) {
+        displayBottom.textContent = '';
+        displayTop.textContent = '';
+        completed = false;
+      }
+      displayBottom.textContent += e.target.innerText;
     }
 
 
-    const nums = document.querySelectorAll('.num');
-    console.log({nums});
+
+
+
+    function pushPlus() {
+      value1 = displayBottom.textContent;
+      operation = 'add';
+      displayTop.textContent += `${value1} + `;
+      displayBottom.textContent = '';
+    }
+
+    function pushEquals() {
+      value2 = displayBottom.textContent;
+
+      if (operation = 'add') {
+        result = add(value1, value2);
+        displayTop.textContent += value2;
+        displayBottom.textContent = '';
+        displayBottom.textContent = result;
+        value1 = result;
+        completed = true;
+      }
+    }
+
+    function pushClear() {
+      value1 = '';
+      value2 = '';
+      displayBottom.textContent = '';
+      displayTop.textContent = ''
+      operation = '';
+    }
+
+
+
+
+
+
+
+
+    plus.addEventListener('click', pushPlus);
+    equals.addEventListener('click', pushEquals);
+    clearBtn.addEventListener('click', pushClear)
+
     for (let i = 0; i < nums.length; i++){
       nums[i].addEventListener('click', populateDisplay);
     }
-
-
-
-
-
-
-
 
 
 
