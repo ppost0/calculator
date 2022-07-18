@@ -61,7 +61,6 @@
 
   <script>
 
-    let displayValue;
     let value1;
     let value2;
     let operation;
@@ -80,10 +79,6 @@
 
 
 
-
-
-
-
     function add(a, b) {
       return Number(a) + Number(b);
     }
@@ -97,6 +92,9 @@
     }
 
     function divide(a, b) {
+      if (b === 0) {
+        return 'undefined';
+      }
       return a / b;
     }
 
@@ -115,27 +113,66 @@
 
 
 
-
-
-    function pushPlus() {
+    function pushOperator(e) {
+      if (e.target.innerText === '+') {
+        operation = add;
+      } else if (e.target.innerText === '-') {
+        operation = subtract;
+      } else if (e.target.innerText === '×') {
+        operation = multiply;
+      } else if (e.target.innerText === '÷') {
+        operation = divide;
+      }
       value1 = displayBottom.textContent;
-      operation = 'add';
-      displayTop.textContent += `${value1} + `;
+      displayTop.textContent += `${value1} ${e.target.innerText} `;
       displayBottom.textContent = '';
     }
+
+
+
+    // function pushPlus() {
+    //   value1 = displayBottom.textContent;
+    //   operation = add;
+    //   displayTop.textContent += `${value1} + `;
+    //   displayBottom.textContent = '';
+    // }
+
+    // function pushMinus() {
+    //   value1 = displayBottom.textContent;
+    //   operation = subtract;
+    //   displayTop.textContent += `${value1} - `;
+    //   displayBottom.textContent = '';
+    // }
+
+    // function pushTimes() {
+    //   value1 = displayBottom.textContent;
+    //   operation = multiply;
+    //   displayTop.textContent += `${value1} × `;
+    //   displayBottom.textContent = '';
+    // }
+
+    // function pushDivide() {
+
+    // }
+
+
+
 
     function pushEquals() {
       value2 = displayBottom.textContent;
 
-      if (operation = 'add') {
-        result = add(value1, value2);
-        displayTop.textContent += value2;
-        displayBottom.textContent = '';
-        displayBottom.textContent = result;
-        value1 = result;
-        completed = true;
-      }
+
+      result = operation(value1, value2);
+      displayTop.textContent += value2;
+      displayBottom.textContent = '';
+      displayBottom.textContent = result;
+      value1 = result;
+      completed = true;
+
     }
+
+
+
 
     function pushClear() {
       value1 = '';
@@ -143,16 +180,21 @@
       displayBottom.textContent = '';
       displayTop.textContent = ''
       operation = '';
+      result = '';
+      completed = false;
     }
 
 
+    //can add delete button using .slice
 
 
 
 
 
-
-    plus.addEventListener('click', pushPlus);
+    plus.addEventListener('click', pushOperator);
+    minus.addEventListener('click', pushOperator);
+    times.addEventListener('click', pushOperator);
+    divided.addEventListener('click', pushOperator);
     equals.addEventListener('click', pushEquals);
     clearBtn.addEventListener('click', pushClear)
 
