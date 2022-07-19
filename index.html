@@ -33,7 +33,7 @@
             <button class="num">3</button>
           </div>
           <div class="rowfour">
-            <button class="num">.</button>
+            <button class="num" id="decimal">.</button>
             <button class="num">0</button>
             <button class="equals">=</button>
           </div>
@@ -69,6 +69,7 @@
     let operatorPushed = false;
 
     const nums = document.querySelectorAll('.num');
+    const decimalBtn = document.querySelector('#decimal');
     const plus = document.querySelector('.plus');
     const minus = document.querySelector('.minus');
     const times = document.querySelector('.times');
@@ -114,6 +115,9 @@
         value2 = undefined;
         completed = false;
       }
+      if (e.target.innerText === '.') {
+        decimalBtn.disabled = true;
+      }
       displayBottom.textContent += e.target.innerText;
     }
 
@@ -157,6 +161,7 @@
 
       displayTop.textContent = `${value1} ${e.target.innerText} `;
       displayBottom.textContent = '';
+      decimalBtn.disabled = false;
     }
 
 
@@ -180,6 +185,7 @@
       displayBottom.textContent = result;
       operatorPushed = false;
       completed = true;
+      decimalBtn.disabled = false;
     }
 
 
