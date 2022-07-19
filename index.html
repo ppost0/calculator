@@ -66,6 +66,7 @@
     let operation;
     let result;
     let completed = false;
+    let operatorPushed = false;
 
     const nums = document.querySelectorAll('.num');
     const plus = document.querySelector('.plus');
@@ -109,8 +110,8 @@
       if (completed) {
         displayBottom.textContent = '';
         displayTop.textContent = '';
-        value1 = '';
-        value2 = '';
+        value1 = undefined;
+        value2 = undefined;
         completed = false;
       }
       displayBottom.textContent += e.target.innerText;
@@ -118,18 +119,40 @@
 
 
     function pushOperator(e) {
-      if (e.target.innerText === '+') {
-        operation = add;
-      } else if (e.target.innerText === '−') {
-        operation = subtract;
-      } else if (e.target.innerText === '×') {
-        operation = multiply;
-      } else if (e.target.innerText === '÷') {
-        operation = divide;
+      if (!operatorPushed) {
+        if (e.target.innerText === '+') {
+          operation = add;
+        } else if (e.target.innerText === '−') {
+          operation = subtract;
+        } else if (e.target.innerText === '×') {
+          operation = multiply;
+        } else if (e.target.innerText === '÷') {
+          operation = divide;
+        }
       }
-      value1 = displayBottom.textContent;
+
+      if (operatorPushed) {
+        value2 = displayBottom.textContent;
+        result = operation(value1, value2);
+        value1 = result;
+        value2 = undefined;
+        if (e.target.innerText === '+') {
+          operation = add;
+        } else if (e.target.innerText === '−') {
+          operation = subtract;
+        } else if (e.target.innerText === '×') {
+          operation = multiply;
+        } else if (e.target.innerText === '÷') {
+          operation = divide;
+        }
+
+      } else {
+        value1 = displayBottom.textContent;
+        operatorPushed = true;
+      }
+
       displayTop.textContent = `${value1} ${e.target.innerText} `;
-      displayBottom.textContent = ''
+      displayBottom.textContent = '';
     }
 
 
@@ -137,28 +160,27 @@
 
     function pushEquals() {
       value2 = displayBottom.textContent;
-
-
       result = operation(value1, value2);
       displayTop.textContent += value2;
       displayBottom.textContent = '';
       displayBottom.textContent = result;
-      value1 = result;
+      // value1 = result;
+      operatorPushed = false;
       completed = true;
-
     }
 
 
 
 
     function pushClear() {
-      value1 = '';
-      value2 = '';
+      value1 = undefined;
+      value2 = undefined;
       displayBottom.textContent = '';
       displayTop.textContent = ''
       operation = '';
-      result = '';
+      result = undefined;
       completed = false;
+      operatorPushed = false;
     }
 
 
