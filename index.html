@@ -119,6 +119,7 @@
 
 
     function pushOperator(e) {
+      completed = false;
       if (!operatorPushed) {
         if (e.target.innerText === '+') {
           operation = add;
@@ -135,7 +136,7 @@
         value2 = displayBottom.textContent;
         result = operation(value1, value2);
         if (result % 1 !== 0) {
-          result = (Math.round(result * 100)) / 100;
+          result = (Math.round(result * 10000000)) / 10000000;
         }
         value1 = result;
         value2 = undefined;
@@ -148,7 +149,7 @@
         } else if (e.target.innerText === '÷') {
           operation = divide;
         }
-
+        operatorPushed = false;
       } else {
         value1 = displayBottom.textContent;
         operatorPushed = true;
@@ -162,18 +163,21 @@
 
 
     function pushEquals() {
-      if (!value1) {
+      value2 = displayBottom.textContent;
+      if (!value1 || !value2 || !operation) {
         return;
       }
-      value2 = displayBottom.textContent;
       result = operation(value1, value2);
+      // value1 = result;
       if (result % 1 !== 0) {
-          result = (Math.round(result * 10000000)) / 10000000;
-        }
+        result = (Math.round(result * 10000000)) / 10000000;
+      }
+
       displayTop.textContent += value2;
+      value2 = undefined;
+      operation = '';
       displayBottom.textContent = '';
       displayBottom.textContent = result;
-      // value1 = result;
       operatorPushed = false;
       completed = true;
     }
