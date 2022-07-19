@@ -113,6 +113,13 @@ button {
   gap: 5px;
 }
 
+.plus, .minus, .times, .divided {
+  color: rgb(40, 40, 169);
+}
+
+.clear {
+  color: rgb(156, 19, 19);
+}
 
 .clearbtn button {
   margin: 20px 50px;
