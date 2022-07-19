@@ -126,11 +126,18 @@ button {
   width: auto;
 }
 
+.tip {
+  font-size: 11px;
+  font-weight: 400;
+  margin: 20px 10px 20px auto;
+}
+
 
 .footer {
-  margin-top: 40px;
+  margin-top: auto;
   padding: 10px;
   font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
   background-color: rgba(49, 52, 107, 0.2);
   text-align: center;
   color: rgba(0, 0, 0, 0.65);
@@ -139,20 +146,20 @@ button {
 
 /* unvisited link */
 a:link {
-  color: #7202a6;
+  color: #9e011e;
 }
 
 /* visited link */
 a:visited {
-  color: #433880;
+  color: #512471;
 }
 
 /* mouse over link */
 a:hover {
-  color: #e784fd;
+  color: #ff0000;
 }
 
 /* selected link */
 a:active {
-  color: #e784fd85;
+  color: #ffffff;
 }
