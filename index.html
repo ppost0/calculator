@@ -45,8 +45,13 @@
           <button class="divided">÷</button>
         </div>
       </div>
-      <div class="clearbtn">
-        <button class="clear">CLEAR</button>
+      <div class="deletebtns">
+        <div class="clearbtn">
+          <button class="clear">CLEAR</button>
+        </div>
+        <div class="delbtn">
+          <button class="del">DEL</button>
+        </div>
       </div>
     </div>
   </div>
@@ -79,6 +84,7 @@
     const displayBottom = document.querySelector('.displaybottom');
     const displayTop = document.querySelector('.displaytop');
     const clearBtn = document.querySelector('.clearbtn');
+    const delBtn = document.querySelector('.delbtn');
 
 
 
@@ -203,25 +209,34 @@
     }
 
 
-
+    function backspace() {
+      displayBottom.textContent = displayBottom.textContent.slice(0,displayBottom.textContent.length-1);
+    }
 
 
     const digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 
     addEventListener('keypress', (e) => {
+      console.log(e)
       input = e.key;
       if (input in digits || input === '.') {
         populateDisplay(e);
       } else if (input === '+' || input === '-' || input === '*' || input === '/') {
         pushOperator(e);
-      } else if (input === 'Enter') {
+      } else if (input === 'Enter' || input === '=') {
         pushEquals(e);
+      } else if (input === ' ') {
+        return;
       }
     });
 
 
-
+    addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        backspace();
+      }
+    })
 
 
 
@@ -230,7 +245,8 @@
     times.addEventListener('click', pushOperator);
     divided.addEventListener('click', pushOperator);
     equals.addEventListener('click', pushEquals);
-    clearBtn.addEventListener('click', pushClear)
+    clearBtn.addEventListener('click', pushClear);
+    delBtn.addEventListener('click', backspace);
 
     for (let i = 0; i < nums.length; i++){
       nums[i].addEventListener('click', populateDisplay);

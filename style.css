@@ -109,8 +109,29 @@ button {
   color: rgb(40, 40, 169);
 }
 
+
+.deletebtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.del {
+  color: rgb(0, 0, 204);
+}
+
 .clear {
   color: rgb(156, 19, 19);
+}
+
+.delbtn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;}
+
+.delbtn button {
+  margin-right: 50px;
+  width: auto;
 }
 
 .clearbtn button {
