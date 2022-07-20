@@ -210,9 +210,7 @@
 
 
     addEventListener('keypress', (e) => {
-      console.log(e);
       input = e.key;
-      console.log(input, 'input')
       if (input in digits || input === '.') {
         populateDisplay(e);
       } else if (input === '+' || input === '-' || input === '*' || input === '/') {
