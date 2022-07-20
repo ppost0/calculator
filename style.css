@@ -24,7 +24,6 @@ body {
   background-color: rgb(157, 157, 157);
   border: 10px solid rgba(0, 0, 0, 0.8);
   border-radius: 20px;
-  /* height: 800px; */
   width: 500px;
   display: flex;
   flex-flow: column nowrap;
@@ -33,16 +32,12 @@ body {
 
 .displayborder {
   display: flex;
-  /* flex: 1 0 auto; */
   min-height: 150px;
   height: auto;
   flex-flow: column nowrap;
   border: 2px inset rgba(0, 0, 0, 0.8);
   border-radius: 5px;
-  /* height: 150px; */
   margin: 30px;
-  /* justify-content: flex-end;
-  align-items: flex-end; */
   background-color: rgba(0, 0, 0, 0.8);
   overflow: auto;
 }
@@ -65,13 +60,11 @@ body {
   font-weight: 600;
   width: 100%;
   overflow-wrap: anywhere;
-  /* white-space: initial; */
   text-align: right;
 }
 
 
 .btns {
-  /* border: 2px dotted black; */
   display: flex;
   flex-direction: column;
 }
@@ -86,7 +79,6 @@ button {
 
 .btnsmain {
   display: flex;
-  /* justify-content: space-around; */
 }
 
 .btnsleft {
@@ -144,22 +136,18 @@ button {
   font-size: 15px;
 }
 
-/* unvisited link */
 a:link {
   color: #9e011e;
 }
 
-/* visited link */
 a:visited {
   color: #512471;
 }
 
-/* mouse over link */
 a:hover {
   color: #ff0000;
 }
 
-/* selected link */
 a:active {
   color: #ffffff;
 }

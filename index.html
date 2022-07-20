@@ -116,26 +116,27 @@
         value2 = undefined;
         completed = false;
       }
-      if (e.target.innerText === '.') {
+      if (e.key === '.' || e.target.innerText === '.') {
         decimalBtn.disabled = true;
       }
-      displayBottom.textContent += e.target.innerText;
+      displayBottom.textContent += e.key || e.target.innerText;
     }
 
 
     function pushOperator(e) {
       completed = false;
       if (!operatorPushed) {
-        if (e.target.innerText === '+') {
+        if (e.key === '+' || e.target.innerText === '+') {
           operation = add;
-        } else if (e.target.innerText === '−') {
+        } else if (e.key === '-' || e.target.innerText === '−') {
           operation = subtract;
-        } else if (e.target.innerText === '×') {
+        } else if (e.key === '*' || e.target.innerText === '×') {
           operation = multiply;
-        } else if (e.target.innerText === '÷') {
+        } else if (e.key === '/' || e.target.innerText === '÷') {
           operation = divide;
         }
       }
+      let oper = e.key || e.target.innerText;
 
       if (operatorPushed) {
         value2 = displayBottom.textContent;
@@ -145,22 +146,21 @@
         }
         value1 = result;
         value2 = undefined;
-        if (e.target.innerText === '+') {
+        if (e.key === '+' || e.target.innerText === '+') {
           operation = add;
-        } else if (e.target.innerText === '−') {
+        } else if (e.key === '-' || e.target.innerText === '−') {
           operation = subtract;
-        } else if (e.target.innerText === '×') {
+        } else if (e.key === '*' || e.target.innerText === '×') {
           operation = multiply;
-        } else if (e.target.innerText === '÷') {
+        } else if (e.key === '/' || e.target.innerText === '÷') {
           operation = divide;
         }
-        // operatorPushed = false;
       } else {
         value1 = displayBottom.textContent;
         operatorPushed = true;
       }
 
-      displayTop.textContent = `${value1} ${e.target.innerText} `;
+      displayTop.textContent =  value1 + ' ' + oper + ' ';
       displayBottom.textContent = '';
       decimalBtn.disabled = false;
     }
@@ -174,11 +174,9 @@
         return;
       }
       result = operation(value1, value2);
-      // value1 = result;
       if (result % 1 !== 0) {
         result = (Math.round(result * 10000000)) / 10000000;
       }
-
       displayTop.textContent += value2;
       value2 = undefined;
       operation = '';
@@ -205,7 +203,25 @@
     }
 
 
-    //can add delete button using .slice
+
+
+
+    const digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+
+
+    addEventListener('keypress', (e) => {
+      console.log(e);
+      input = e.key;
+      console.log(input, 'input')
+      if (input in digits || input === '.') {
+        populateDisplay(e);
+      } else if (input === '+' || input === '-' || input === '*' || input === '/') {
+        pushOperator(e);
+      } else if (input === 'Enter') {
+        pushEquals(e);
+      }
+    });
+
 
 
 
